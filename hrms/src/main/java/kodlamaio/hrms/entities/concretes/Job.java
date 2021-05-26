@@ -23,6 +23,6 @@ public class Job {
 	private int id;
 	
 	@Column(name = "job_title_name")
-	private String jobTitles;
+	private String jobTitle;
 
 }
