@@ -23,7 +23,6 @@ public class ActivationEmail {
 	@Column(name = "id")
 	private int id;
 	
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "company_id")
 	private int companyId;
 	
