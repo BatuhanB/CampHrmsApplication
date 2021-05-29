@@ -1,3 +1,4 @@
-# Kamp6GunOdev3
-## Ödev Çıktısı Aşağıdaki Gibidir
-![results](https://user-images.githubusercontent.com/56514839/117587042-9879f300-b124-11eb-812d-40a47806b955.PNG)
+# Hrms Application
+## Sql Grafiği
+![hrms_ERDpng](https://user-images.githubusercontent.com/56514839/119720369-8dd49300-be72-11eb-900b-3b2b13e23f31.png)
+
