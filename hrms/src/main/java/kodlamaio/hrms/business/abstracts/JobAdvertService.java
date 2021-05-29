@@ -9,9 +9,9 @@ import kodlamaio.hrms.entities.concretes.JobAdvert;
 
 public interface JobAdvertService {
 
-	Result add(JobAdvert jobAdd);
+	Result add(JobAdvert jobAdvert);
 
-	Result update(JobAdvert jobAdd);
+	Result update(JobAdvert jobAdvert);
 
 	Result delete(int id);
 

@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "employers")
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobAdd"})
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobAdvert"})
 public class Employer extends User {
 
 	// @Id
@@ -47,14 +47,14 @@ public class Employer extends User {
 	private List<JobAdvert> jobAdd;
 
 
-	public Employer(Integer id, String email, String password, String companyName, String websiteName,
-			String domainMail, String phoneNumber, LocalDate createdAt, boolean isActive, boolean isDeleted) {
-		super(id, email, password, createdAt, isActive, isDeleted);
-		this.companyName = companyName;
-		this.websiteName = websiteName;
-		this.domainMail = domainMail;
-		this.phoneNumber = phoneNumber;
-	}
+//	public Employer(Integer id, String email, String password, String companyName, String websiteName,
+//			String domainMail, String phoneNumber, LocalDate createdAt, boolean isActive, boolean isDeleted) {
+//		super(id, email, password, createdAt, isActive, isDeleted);
+//		this.companyName = companyName;
+//		this.websiteName = websiteName;
+//		this.domainMail = domainMail;
+//		this.phoneNumber = phoneNumber;
+//	}
 	
 	
 }

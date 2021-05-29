@@ -28,12 +28,12 @@ public class JobAdvertManager implements JobAdvertService {
 	}
 
 	@Override
-	public Result add(JobAdvert jobAdd) {
+	public Result add(JobAdvert jobAdvert) {
 
-		if (!checkFields(jobAdd)) {
-			return new ErrorResult("Missing information.");
-		}
-		this.jobAddDao.save(jobAdd);
+//		if (!checkFields(jobAdvert)) {
+//			return new ErrorResult("Missing information.");
+//		}
+		this.jobAddDao.save(jobAdvert);
 		return new SuccessResult("Job advert is added.");
 	}
 
@@ -88,15 +88,15 @@ public class JobAdvertManager implements JobAdvertService {
 		return new SuccessDataResult<List<JobAdvert>>(this.jobAddDao.getAllOpenAndEmployer_Id(id));
 	}
 
-	private boolean checkFields(JobAdvert jobAdd) {
-
-		if (jobAdd.getJob() != null && jobAdd.getDescription() != null && jobAdd.getCity() != null
-				&& jobAdd.getOpenJobCounter() != 0) {
-
-			return true;
-		}
-
-		return false;
-	}
+//	private boolean checkFields(JobAdvert jobAdd) {
+//
+//		if (jobAdd.getJob() != null && jobAdd.getDescription() != null && jobAdd.getCity() != null
+//				&& jobAdd.getOpenJobCounter() != 0) {
+//
+//			return true;
+//		}
+//
+//		return false;
+//	}
 
 }
