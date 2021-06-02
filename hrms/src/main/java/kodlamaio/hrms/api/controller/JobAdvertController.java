@@ -18,42 +18,42 @@ import kodlamaio.hrms.entities.concretes.JobAdvert;
 @RequestMapping("/api/jobadds")
 public class JobAdvertController {
 
-	private JobAdvertService jobAddService;
+	private JobAdvertService jobAdvertService;
 
 	@Autowired
-	public JobAdvertController(JobAdvertService jobAddService) {
+	public JobAdvertController(JobAdvertService jobAdvertService) {
 		super();
-		this.jobAddService = jobAddService;
+		this.jobAdvertService = jobAdvertService;
 	}
 	
 	@PostMapping("/add")
 	public Result add(@RequestBody JobAdvert jobAdvert) {
-		return this.jobAddService.add(jobAdvert);
+		return this.jobAdvertService.add(jobAdvert);
 	}
 	
 	@GetMapping("/getall")
 	public DataResult<List<JobAdvert>> getAll(){
-		return this.jobAddService.getAll();
+		return this.jobAdvertService.getAll();
 	}
 	
 	@PostMapping("/changeOpenToClose")
 	public Result changeOpenToClose(int id) {
-		return this.changeOpenToClose(id);
+		return this.jobAdvertService.changeOpenToClose(id);
 	}
 	
 	@GetMapping("/getByOpen")
 	public DataResult<List<JobAdvert>> getAllOpen(){
-		return this.jobAddService.getAllOpen();
+		return this.jobAdvertService.getAllOpen();
 	}
 	
 	@GetMapping("/findAllByOpenOrderByPublishDate")
 	DataResult<List<JobAdvert>> findAllByOpenOrderByPublishDate(){
-		return this.jobAddService.findAllByOpenOrderByPublishDate();
+		return this.jobAdvertService.getByOpenOrderByPublishDate();
 	}
 	
 	@GetMapping("/getAllOpenAndEmployer")
 	DataResult<List<JobAdvert>> getAllOpenAndEmployer_Id(int id){
-		return this.jobAddService.getAllOpenAndEmployer_Id(id);
+		return this.jobAdvertService.getOpenAndEmployer_Id(id);
 	}
 	
 	

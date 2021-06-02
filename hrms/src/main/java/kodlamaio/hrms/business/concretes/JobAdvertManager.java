@@ -30,9 +30,9 @@ public class JobAdvertManager implements JobAdvertService {
 	@Override
 	public Result add(JobAdvert jobAdvert) {
 
-//		if (!checkFields(jobAdvert)) {
-//			return new ErrorResult("Missing information.");
-//		}
+		if (!checkFields(jobAdvert)) {
+			return new ErrorResult("Missing information.");
+		}
 		this.jobAddDao.save(jobAdvert);
 		return new SuccessResult("Job advert is added.");
 	}
@@ -67,9 +67,9 @@ public class JobAdvertManager implements JobAdvertService {
 		if (getById(id).getData().isOpen() == false) {
 			return new ErrorResult("This job advert is not active.");
 		}
-		JobAdvert jobAdd = getById(id).getData();
-		jobAdd.setOpen(false);
-		update(jobAdd);
+		JobAdvert jobAdvert = getById(id).getData();
+		jobAdvert.setOpen(false);
+		update(jobAdvert);
 		return new SuccessResult("Job advert has been successfully closed.");
 	}
 
@@ -79,24 +79,24 @@ public class JobAdvertManager implements JobAdvertService {
 	}
 
 	@Override
-	public DataResult<List<JobAdvert>> findAllByOpenOrderByPublishDate() {
-		return new SuccessDataResult<List<JobAdvert>>(this.jobAddDao.findAllByOpenOrderByPublishDateAsc());
+	public DataResult<List<JobAdvert>> getByOpenOrderByPublishDate() {
+		return new SuccessDataResult<List<JobAdvert>>(this.jobAddDao.getByOpenOrderByPublishDateAsc());
 	}
 
 	@Override
-	public DataResult<List<JobAdvert>> getAllOpenAndEmployer_Id(int id) {
-		return new SuccessDataResult<List<JobAdvert>>(this.jobAddDao.getAllOpenAndEmployer_Id(id));
+	public DataResult<List<JobAdvert>> getOpenAndEmployer_Id(int id) {
+		return new SuccessDataResult<List<JobAdvert>>(this.jobAddDao.getOpenAndEmployer_Id(id));
 	}
 
-//	private boolean checkFields(JobAdvert jobAdd) {
-//
-//		if (jobAdd.getJob() != null && jobAdd.getDescription() != null && jobAdd.getCity() != null
-//				&& jobAdd.getOpenJobCounter() != 0) {
-//
-//			return true;
-//		}
-//
-//		return false;
-//	}
+	private boolean checkFields(JobAdvert jobAdd) {
+
+		if (jobAdd.getJob() != null && jobAdd.getDescription() != null && jobAdd.getCity() != null
+				&& jobAdd.getOpenJobCounter() != 0) {
+
+			return true;
+		}
+
+		return false;
+	}
 
 }

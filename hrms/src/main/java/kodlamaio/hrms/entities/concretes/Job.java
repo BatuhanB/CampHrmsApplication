@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "job_titles")
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobAdvert"})
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobAdverts"})
 public class Job {
 
 	@Id
@@ -38,8 +38,8 @@ public class Job {
 	@Column(name= "is_deleted", columnDefinition = "boolean default false")
 	private boolean isDeleted = false;
 
-	@JsonIgnore
+
 	@OneToMany(mappedBy = "job")
-	private List<JobAdvert> jobAdd;
+	private List<JobAdvert> jobAdverts;
 
 }

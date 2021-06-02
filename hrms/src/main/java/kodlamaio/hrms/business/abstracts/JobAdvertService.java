@@ -23,7 +23,7 @@ public interface JobAdvertService {
 
 	DataResult<List<JobAdvert>> getAllOpen();
 
-	DataResult<List<JobAdvert>> findAllByOpenOrderByPublishDate();
+	DataResult<List<JobAdvert>> getByOpenOrderByPublishDate();
 
-	DataResult<List<JobAdvert>> getAllOpenAndEmployer_Id(int id);
+	DataResult<List<JobAdvert>> getOpenAndEmployer_Id(int id);
 }
