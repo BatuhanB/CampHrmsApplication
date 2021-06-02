@@ -16,7 +16,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "city")
+@Table(name = "cities")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -30,6 +30,7 @@ public class City {
 	@Column(name="name")
 	private String name;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "city")
 	private List<JobAdvert> jobAdverts;
 }
