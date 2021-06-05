@@ -11,6 +11,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -34,12 +36,15 @@ public class User {
 	@Column(name = "password")
 	private String password;
 	
+	@JsonIgnore
 	@Column(name = "created_date",columnDefinition = "Date defult CURRENT_DATE")
 	private LocalDate createdAt = LocalDate.now();
 
+	@JsonIgnore
 	@Column(name = "is_active",columnDefinition = "boolean default true")
 	private boolean isActive = true;
 
+	@JsonIgnore
 	@Column(name = "is_deleted", columnDefinition = "boolean default false")
 	private boolean isDeleted = false;
 

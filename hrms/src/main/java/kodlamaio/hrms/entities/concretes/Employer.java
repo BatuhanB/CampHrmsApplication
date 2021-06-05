@@ -1,6 +1,6 @@
 package kodlamaio.hrms.entities.concretes;
 
-import java.time.LocalDate;
+//import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -15,11 +15,14 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import kodlamaio.hrms.entities.abstracts.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @Table(name = "employers")
+@PrimaryKeyJoinColumn(name="id",referencedColumnName = "id")
+@EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobAdverts"})
@@ -47,14 +50,14 @@ public class Employer extends User {
 	private List<JobAdvert> jobAdverts;
 
 
-	public Employer(Integer id, String email, String password, String companyName, String websiteName,
-			String domainMail, String phoneNumber, LocalDate createdAt, boolean isActive, boolean isDeleted) {
-		super(id, email, password, createdAt, isActive, isDeleted);
-		this.companyName = companyName;
-		this.websiteName = websiteName;
-		this.domainMail = domainMail;
-		this.phoneNumber = phoneNumber;
-	}
+//	public Employer(Integer id, String email, String password, String companyName, String websiteName,
+//			String domainMail, String phoneNumber, LocalDate createdAt, boolean isActive, boolean isDeleted) {
+//		super(id, email, password, createdAt, isActive, isDeleted);
+//		this.companyName = companyName;
+//		this.websiteName = websiteName;
+//		this.domainMail = domainMail;
+//		this.phoneNumber = phoneNumber;
+//	}
 	
 	
 }

@@ -8,7 +8,7 @@ import kodlamaio.hrms.business.abstracts.AuthenticationService;
 import kodlamaio.hrms.business.abstracts.EmployerService;
 import kodlamaio.hrms.business.abstracts.JobSeekerService;
 import kodlamaio.hrms.business.abstracts.UserService;
-import kodlamaio.hrms.core.utilities.adapters.MernisService;
+import kodlamaio.hrms.core.utilities.adapters.abstracts.MernisService;
 import kodlamaio.hrms.core.utilities.results.ErrorResult;
 import kodlamaio.hrms.core.utilities.results.Result;
 import kodlamaio.hrms.core.utilities.results.SuccessResult;

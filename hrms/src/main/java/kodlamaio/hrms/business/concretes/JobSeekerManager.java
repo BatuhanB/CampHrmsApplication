@@ -12,6 +12,7 @@ import kodlamaio.hrms.core.utilities.results.SuccessDataResult;
 import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.dataAccess.abstracts.JobSeekerDao;
 import kodlamaio.hrms.entities.concretes.JobSeeker;
+import kodlamaio.hrms.entities.dtos.JobSeekerResumeDto;
 
 @Service
 public class JobSeekerManager implements JobSeekerService{
@@ -43,6 +44,19 @@ public class JobSeekerManager implements JobSeekerService{
 	@Override
 	public DataResult<JobSeeker> getById(int id) {
 		return new SuccessDataResult<JobSeeker>(this.jobSeekerDao.getOne(id));
+	}
+
+	@Override
+	public DataResult<JobSeekerResumeDto> getJobseekerResumeById(int id) {
+			JobSeeker jobSeeker = this.jobSeekerDao.getById(id);
+			JobSeekerResumeDto resume = new JobSeekerResumeDto();
+			resume.experience = jobSeeker.getExperience();
+			resume.language = jobSeeker.getLanguage();
+			resume.image = jobSeeker.getImage();
+			resume.link = jobSeeker.getLink();
+			resume.skill = jobSeeker.getSkill();
+			resume.school = jobSeeker.getSchool();
+			return new SuccessDataResult<JobSeekerResumeDto>(resume);	
 	}
 
 }
