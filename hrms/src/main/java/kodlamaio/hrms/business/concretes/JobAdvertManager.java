@@ -56,7 +56,7 @@ public class JobAdvertManager implements JobAdvertService {
 
 	@Override
 	public DataResult<List<JobAdvert>> getAll() {
-		return new SuccessDataResult<List<JobAdvert>>(this.jobAddDao.findAll());
+		return new SuccessDataResult<List<JobAdvert>>(this.jobAddDao.findAll(),"Listed");
 	}
 	
 	@Override
@@ -64,28 +64,28 @@ public class JobAdvertManager implements JobAdvertService {
 		if (getById(id) == null) {
 			return new ErrorResult("Job advert not available.");
 		}
-		if (getById(id).getData().isOpen() == false) {
+		if (getById(id).getData().isOpenPos() == false) {
 			return new ErrorResult("This job advert is not active.");
 		}
 		JobAdvert jobAdvert = getById(id).getData();
-		jobAdvert.setOpen(false);
+		jobAdvert.setOpenPos(false);
 		update(jobAdvert);
 		return new SuccessResult("Job advert has been successfully closed.");
 	}
 
 	@Override
 	public DataResult<List<JobAdvert>> getAllOpen() {
-		return new SuccessDataResult<List<JobAdvert>>(this.jobAddDao.getAllOpen());
+		return new SuccessDataResult<List<JobAdvert>>(this.jobAddDao.getAllOpen(),"Listed");
 	}
 
 	@Override
 	public DataResult<List<JobAdvert>> getByOpenOrderByPublishDate() {
-		return new SuccessDataResult<List<JobAdvert>>(this.jobAddDao.getByOpenOrderByPublishDateAsc());
+		return new SuccessDataResult<List<JobAdvert>>(this.jobAddDao.getByOpenOrderByPublishDateAsc(),"Listed");
 	}
 
 	@Override
 	public DataResult<List<JobAdvert>> getOpenAndEmployer_Id(int id) {
-		return new SuccessDataResult<List<JobAdvert>>(this.jobAddDao.getOpenAndEmployer_Id(id));
+		return new SuccessDataResult<List<JobAdvert>>(this.jobAddDao.getOpenAndEmployer_Id(id),"Listed");
 	}
 
 	private boolean checkFields(JobAdvert jobAdd) {

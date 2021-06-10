@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -39,12 +40,15 @@ public class JobAdvert {
 	// private int cityId;
 
 	@Column(name = "description")
+	@NotBlank(message = "Description is mandatory")
 	private String description;
 
 	@Column(name = "salary_min")
+	@NotBlank(message = "Minimum salary value is mandatory")
 	private int salaryMin;
 
 	@Column(name = "salary_max")
+	@NotBlank(message = "Maximum salary value is mandatory")
 	private int salaryMax;
 
 	@Column(name = "open_job_counter")
@@ -54,14 +58,14 @@ public class JobAdvert {
 	private LocalDate applicationDeadline;
 
 	@Column(name = "publish_date")
-	private LocalDate publishDate;
+	private LocalDate publishDate = LocalDate.now();
 
 	@JsonIgnore
 	@Column(name = "created_date", nullable = true)
 	private LocalDate createdDate = LocalDate.now();
 
 	@Column(name = "is_open")
-	private boolean isOpen;
+	private boolean isOpenPos = false;
 
 	@Column(name = "is_active")
 	private boolean isActive;

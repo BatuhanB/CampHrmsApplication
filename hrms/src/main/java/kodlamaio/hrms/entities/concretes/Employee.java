@@ -31,13 +31,13 @@ public class Employee extends User {
 	private String firstName;
 
 	@Column(name = "last_name")
-	private String last_name;
+	private String lastName;
 
-	public Employee(Integer id, String email, String password, String firstName, String last_name, LocalDate createdAt,
+	public Employee(Integer id, String email, String password, String firstName, String lastName, LocalDate createdAt,
 			boolean isActive, boolean isDeleted) {
 		super(id, email, password, createdAt, isActive, isDeleted);
 		this.firstName = firstName;
-		this.last_name = last_name;
+		this.lastName = lastName;
 	}
 
 }
